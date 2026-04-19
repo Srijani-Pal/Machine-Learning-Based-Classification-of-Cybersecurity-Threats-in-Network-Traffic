@@ -4,10 +4,40 @@
 This project applies machine learning and deep learning techniques to classify network traffic attacks using multiple datasets: CIC-IDS-2017, DDOS, NSL-KDD, and UNSW-NB15.
 
 ## Datasets
-- **CIC-IDS-2017**: 1,132,001 samples with 9 attack classes (BENIGN, Bot, DDoS, DoS Hulk, DoS slowloris, DoS Slowhttptest, FTP-Patator, PortScan, SSH-Patator)
-- **DDOS**: 99,970 samples (single class - DDOS attacks)
-- **UNSW-NB15**: 66,957 samples with 2 classes (Normal vs Attack)
-- **NSL-KDD**: Malformed data - excluded from training
+
+**Download Original Datasets:**
+
+### CIC-IDS-2017
+- **Source**: https://www.kaggle.com/datasets/cicdataset/cicids2017
+- **Samples**: 1,132,001 with 9 attack classes
+- **Size**: ~846 MB (merged)
+- **Classes**: BENIGN, Bot, DDoS, DoS Hulk, DoS slowloris, DoS Slowhttptest, FTP-Patator, PortScan, SSH-Patator
+
+### DDOS
+- **Source**: https://www.kaggle.com/datasets/mrmoroj/ddos-attacks
+- **Samples**: 99,970 (single class - DDOS attacks)
+- **Size**: ~7.2 GB (merged)
+- **Note**: Large dataset, may require high memory for processing
+
+### UNSW-NB15
+- **Source**: https://www.kaggle.com/datasets/mrmoroj/unsw-nb15
+- **Samples**: 66,957 with 2 classes (Normal vs Attack)
+- **Size**: ~39 MB (merged)
+
+### NSL-KDD
+- **Source**: https://www.kaggle.com/datasets/hassan06/nslkdd
+- **Status**: Excluded from training due to malformed CSV formatting
+- **Note**: Data has structural issues - columns not properly delimited
+
+**Data Processing:**
+- After downloading, place CSV files in respective folders:
+  - `CIC-IDS- 2017/` 
+  - `DDOS/`
+  - `NSL_KDD/`
+  - `UNSW/`
+- Run `merge_datasets.py` to combine files
+- Run `clean_fast.py` to clean and preprocess
+- Run `normalize.py` to apply Min-Max scaling
 
 ## Project Pipeline
 
