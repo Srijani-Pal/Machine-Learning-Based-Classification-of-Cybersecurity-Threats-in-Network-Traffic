@@ -1,0 +1,42 @@
+# Large dataset files
+*.csv
+*.pcap
+
+# Machine learning models
+*.h5
+*.pkl
+*.joblib
+*.model
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Results and outputs (optional - only if files are huge)
+# Uncomment if result files are too large:
+# rf_results/
+# cnn_results/
