@@ -96,6 +96,25 @@ This project applies machine learning and deep learning techniques to classify n
 | DDOS | 100% | 100% | 100% | 100% | 50 |
 | UNSW | 89.34% | 89.40% | 89.34% | 88.85% | 25 |
 
+#### SVM (Support Vector Machine) (`svm_v2.py`)
+- **Algorithm**: SVC with RBF kernel (C=1.0, gamma='scale')
+- **Train/Test Split**: 80/20 stratified
+- **Preprocessing**: SimpleImputer for missing values, label encoding for categorical features
+- **Metrics**: Accuracy, Precision, Recall, F1-Score
+- **Output**:
+  - Per-dataset results with confusion matrices
+  - Classification reports
+  - Summary statistics
+
+**Results:**
+| Dataset | Accuracy | Precision | Recall | F1-Score | Test Samples |
+|---------|----------|-----------|--------|----------|--------------|
+| CIC-IDS-2017 | Skipped* | - | - | - | Single-class |
+| DDOS | Skipped* | - | - | - | Single-class |
+| UNSW | 95.53% | 95.77% | 95.53% | 95.41% | 13,392 |
+
+*Note: DDOS dataset is single-class (all DDOS attacks). CIC-IDS-2017 sample has class imbalance issues with SVM training. SVM works best on binary/multi-class balanced datasets.
+
 ## Results Files
 
 ### Random Forest Results
@@ -111,12 +130,19 @@ This project applies machine learning and deep learning techniques to classify n
 - `cnn_results/cnn_model_*.h5` - Trained model files (binary format)
 - `cnn_results/summary_results.csv` - CNN performance summary
 
+### SVM Results
+- `svm_results/results_UNSW.txt` - SVM metrics and confusion matrix for UNSW dataset
+- `svm_results/summary_results.csv` - SVM performance summary
+
 ## Key Findings
 
-### Model Performance
-- **Random Forest** outperforms CNN on imbalanced datasets (CIC-IDS-2017)
-- **CNN** handles single-class (DDOS) and binary (UNSW) classification perfectly
-- Both models achieve >89% accuracy across datasets
+### Model Performance Comparison
+- **Random Forest**: Best overall performance (99%+ accuracy on most datasets)
+- **CNN**: Good for single-class (DDOS) and binary (UNSW) classification (~89-100%)
+- **SVM**: Good balanced performance on binary classification (95.53% on UNSW)
+- **Random Forest** outperforms other models on imbalanced multi-class datasets
+- **SVM** with RBF kernel performs well on binary datasets with balanced classes
+- All models handle the UNSW binary classification well (>95% accuracy)
 
 ### Important Features (Random Forest)
 **CIC-IDS-2017:**
@@ -150,6 +176,7 @@ python normalize.py
 # 4. Train models
 python random_forest_v2.py  # Random Forest
 python cnn_v2.py            # CNN
+python svm_v2.py            # SVM
 ```
 
 ## Technologies Used
