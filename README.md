@@ -111,10 +111,10 @@ This project applies machine learning and deep learning techniques to classify n
 | Dataset | Type | Accuracy | Precision | Recall | F1-Score | Test Samples |
 |---------|------|----------|-----------|--------|----------|--------------|
 | CIC-IDS-2017 | Multi-class (sample) | 98.04% | 98.12% | 98.04% | 98.04% | 10,000 |
-| DDOS | Binary* | Pending | - | - | - | - |
+| DDOS | Binary* | 63.28% | 70.42% | 63.28% | 55.96% | 17,613 |
 | UNSW | Binary | 95.53% | 95.77% | 95.53% | 95.41% | 13,392 |
 
-*DDOS: Requires combining with BENIGN traffic to create binary classification (in progress)
+*DDOS: Binary classification combining DDOS attacks with BENIGN traffic from CIC-IDS-2017 (only 3 common numeric features)
 
 ## Results Files
 
@@ -134,7 +134,7 @@ This project applies machine learning and deep learning techniques to classify n
 ### SVM Results
 - `svm_results/results_CIC_IDS_2017_svm.txt` - SVM multi-class results (50k sample)
 - `svm_results/results_UNSW_svm.txt` - SVM binary classification for UNSW
-- `svm_results/results_DDOS_svm.txt` - SVM binary classification for DDOS (in progress)
+- `svm_results/results_DDOS_svm.txt` - SVM binary classification for DDOS (DDOS vs BENIGN)
 - `svm_results/svm_summary_all.csv` - SVM performance summary
 
 ## Key Findings
@@ -145,7 +145,8 @@ This project applies machine learning and deep learning techniques to classify n
 - **CNN**: Good for single-class and binary classification (~89-100% on UNSW/DDOS)
 - **Random Forest** outperforms on large imbalanced multi-class problems
 - **SVM** with linear kernel works well for multi-class when data is balanced
-- **SVM** with RBF kernel achieves 95%+ accuracy on binary classification
+- **SVM** with RBF kernel achieves 95%+ accuracy on binary classification (UNSW)
+- **DDOS SVM**: Limited accuracy (63.28%) due to dataset incompatibility (only 3 matching features between DDOS and CIC-IDS BENIGN)
 - All models handle UNSW binary classification well (>95% accuracy)
 
 ### Important Features (Random Forest)
