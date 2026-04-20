@@ -1,0 +1,60 @@
+RANDOM FOREST RESULTS - CIC-IDS-2017
+======================================================================
+
+Dataset Shape: (1132001, 71)
+Train Samples: 905600
+Test Samples: 226401
+
+PERFORMANCE METRICS
+----------------------------------------------------------------------
+Accuracy:  0.9991
+Precision: 0.9991
+Recall:    0.9991
+F1 Score:  0.9991
+
+CLASSIFICATION REPORT
+----------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00    150420
+           1       1.00      0.44      0.61        25
+           2       1.00      1.00      1.00     25603
+           3       1.00      1.00      1.00     28290
+           4       0.99      0.99      0.99      1045
+           5       1.00      0.99      0.99      1077
+           6       1.00      1.00      1.00      1158
+           7       1.00      1.00      1.00     18139
+           8       1.00      1.00      1.00       644
+
+    accuracy                           1.00    226401
+   macro avg       1.00      0.93      0.95    226401
+weighted avg       1.00      1.00      1.00    226401
+
+
+CONFUSION MATRIX
+----------------------------------------------------------------------
+                  BENIGN  Bot   DDoS  DoS Hulk  DoS Slowhttptest  DoS slowloris  FTP-Patator  PortScan  SSH-Patator
+BENIGN            150406    0      1         8                 5              0            0         0            0
+Bot                   14   11      0         0                 0              0            0         0            0
+DDoS                   9    0  25594         0                 0              0            0         0            0
+DoS Hulk             127    0      0     28163                 0              0            0         0            0
+DoS Slowhttptest       8    0      0         0              1032              4            0         1            0
+DoS slowloris          5    0      0         0                 4           1068            0         0            0
+FTP-Patator            1    0      0         0                 0              0         1157         0            0
+PortScan               3    0      0         0                 0              0            0     18136            0
+SSH-Patator            2    0      0         1                 0              0            0         0          641
+
+
+TOP 10 IMPORTANT FEATURES
+----------------------------------------------------------------------
+                    Feature  Importance
+     Bwd Packet Length Mean    0.077587
+      Bwd Packet Length Std    0.059428
+       Avg Bwd Segment Size    0.056137
+        Average Packet Size    0.047891
+         Packet Length Mean    0.045454
+          Packet Length Std    0.045263
+          Subflow Fwd Bytes    0.041245
+      Bwd Packet Length Max    0.040823
+Total Length of Fwd Packets    0.037259
+      Fwd Packet Length Max    0.037185

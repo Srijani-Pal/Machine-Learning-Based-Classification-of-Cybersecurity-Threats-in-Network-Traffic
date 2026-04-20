@@ -1,0 +1,16 @@
+SVM Classifier - CIC-IDS-2017 (50k sample)
+
+Accuracy:  0.9804 (98.04%)
+Precision: 0.9812 (98.12%)
+Recall:    0.9804 (98.04%)
+F1-Score:  0.9804 (98.04%)
+
+Test Samples: 10000
+              precision    recall  f1-score   support
+
+      BENIGN       1.00      0.96      0.98      5227
+        DDoS       0.96      1.00      0.98      4773
+
+    accuracy                           0.98     10000
+   macro avg       0.98      0.98      0.98     10000
+weighted avg       0.98      0.98      0.98     10000

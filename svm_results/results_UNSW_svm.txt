@@ -1,0 +1,20 @@
+SVM Classifier - UNSW (Binary)
+
+Accuracy:  0.9553 (95.53%)
+Precision: 0.9577 (95.77%)
+Recall:    0.9553 (95.53%)
+F1-Score:  0.9541 (95.41%)
+
+Test Samples: 13392
+Confusion Matrix:
+[[9713    7]
+ [ 591 3081]]
+
+              precision    recall  f1-score   support
+
+      Normal       0.94      1.00      0.97      9720
+      Attack       1.00      0.84      0.91      3672
+
+    accuracy                           0.96     13392
+   macro avg       0.97      0.92      0.94     13392
+weighted avg       0.96      0.96      0.95     13392

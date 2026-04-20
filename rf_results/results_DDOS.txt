@@ -1,0 +1,44 @@
+RANDOM FOREST RESULTS - DDOS
+======================================================================
+
+Dataset Shape: (99970, 85)
+Train Samples: 79976
+Test Samples: 19994
+
+PERFORMANCE METRICS
+----------------------------------------------------------------------
+Accuracy:  1.0000
+Precision: 1.0000
+Recall:    1.0000
+F1 Score:  1.0000
+
+CLASSIFICATION REPORT
+----------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     19994
+
+    accuracy                           1.00     19994
+   macro avg       1.00      1.00      1.00     19994
+weighted avg       1.00      1.00      1.00     19994
+
+
+CONFUSION MATRIX
+----------------------------------------------------------------------
+       ddos
+ddos  19994
+
+
+TOP 10 IMPORTANT FEATURES
+----------------------------------------------------------------------
+         Feature  Importance
+      Unnamed: 0         0.0
+    ECE Flag Cnt         0.0
+  Bwd Byts/b Avg         0.0
+Fwd Blk Rate Avg         0.0
+  Fwd Pkts/b Avg         0.0
+  Fwd Byts/b Avg         0.0
+Bwd Seg Size Avg         0.0
+Fwd Seg Size Avg         0.0
+    Pkt Size Avg         0.0
+   Down/Up Ratio         0.0

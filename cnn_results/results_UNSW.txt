@@ -1,0 +1,32 @@
+CNN RESULTS - UNSW
+======================================================================
+
+Dataset Shape: (66957, 36)
+Number of Classes: 2
+Train Samples: 53565
+Test Samples: 13392
+Training Epochs: 25
+
+PERFORMANCE METRICS
+----------------------------------------------------------------------
+Accuracy:  0.8934
+Precision: 0.8940
+Recall:    0.8934
+F1 Score:  0.8885
+
+CLASSIFICATION REPORT
+----------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0       0.89      0.97      0.93      9715
+           1       0.90      0.69      0.78      3677
+
+    accuracy                           0.89     13392
+   macro avg       0.90      0.83      0.85     13392
+weighted avg       0.89      0.89      0.89     13392
+
+
+CONFUSION MATRIX
+----------------------------------------------------------------------
+[[9439  276]
+ [1152 2525]]

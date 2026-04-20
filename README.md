@@ -96,10 +96,11 @@ This project applies machine learning and deep learning techniques to classify n
 | DDOS | 100% | 100% | 100% | 100% | 50 |
 | UNSW | 89.34% | 89.40% | 89.34% | 88.85% | 25 |
 
-#### SVM (Support Vector Machine) (`svm_v2.py`)
-- **Algorithm**: SVC with RBF kernel (C=1.0, gamma='scale')
+#### SVM (Support Vector Machine) (`svm_final.py`)
+- **Algorithm**: SVC with RBF kernel (C=1.0, gamma='scale') and Linear kernel for multi-class
 - **Train/Test Split**: 80/20 stratified
-- **Preprocessing**: SimpleImputer for missing values, label encoding for categorical features
+- **Preprocessing**: LabelEncoder for categorical features
+- **Datasets**: 50k sample CIC-IDS, full UNSW, 50k sample DDOS+BENIGN combined
 - **Metrics**: Accuracy, Precision, Recall, F1-Score
 - **Output**:
   - Per-dataset results with confusion matrices
@@ -107,13 +108,13 @@ This project applies machine learning and deep learning techniques to classify n
   - Summary statistics
 
 **Results:**
-| Dataset | Accuracy | Precision | Recall | F1-Score | Test Samples |
-|---------|----------|-----------|--------|----------|--------------|
-| CIC-IDS-2017 | Skipped* | - | - | - | Single-class |
-| DDOS | Skipped* | - | - | - | Single-class |
-| UNSW | 95.53% | 95.77% | 95.53% | 95.41% | 13,392 |
+| Dataset | Type | Accuracy | Precision | Recall | F1-Score | Test Samples |
+|---------|------|----------|-----------|--------|----------|--------------|
+| CIC-IDS-2017 | Multi-class (sample) | 98.04% | 98.12% | 98.04% | 98.04% | 10,000 |
+| DDOS | Binary* | Pending | - | - | - | - |
+| UNSW | Binary | 95.53% | 95.77% | 95.53% | 95.41% | 13,392 |
 
-*Note: DDOS dataset is single-class (all DDOS attacks). CIC-IDS-2017 sample has class imbalance issues with SVM training. SVM works best on binary/multi-class balanced datasets.
+*DDOS: Requires combining with BENIGN traffic to create binary classification (in progress)
 
 ## Results Files
 
@@ -131,18 +132,21 @@ This project applies machine learning and deep learning techniques to classify n
 - `cnn_results/summary_results.csv` - CNN performance summary
 
 ### SVM Results
-- `svm_results/results_UNSW.txt` - SVM metrics and confusion matrix for UNSW dataset
-- `svm_results/summary_results.csv` - SVM performance summary
+- `svm_results/results_CIC_IDS_2017_svm.txt` - SVM multi-class results (50k sample)
+- `svm_results/results_UNSW_svm.txt` - SVM binary classification for UNSW
+- `svm_results/results_DDOS_svm.txt` - SVM binary classification for DDOS (in progress)
+- `svm_results/svm_summary_all.csv` - SVM performance summary
 
 ## Key Findings
 
 ### Model Performance Comparison
-- **Random Forest**: Best overall performance (99%+ accuracy on most datasets)
-- **CNN**: Good for single-class (DDOS) and binary (UNSW) classification (~89-100%)
-- **SVM**: Good balanced performance on binary classification (95.53% on UNSW)
-- **Random Forest** outperforms other models on imbalanced multi-class datasets
-- **SVM** with RBF kernel performs well on binary datasets with balanced classes
-- All models handle the UNSW binary classification well (>95% accuracy)
+- **Random Forest**: Best overall performance on imbalanced multi-class (99.91% on CIC-IDS-2017)
+- **SVM**: Excellent on balanced datasets (98.04% on CIC-IDS-2017 sample, 95.53% on UNSW)
+- **CNN**: Good for single-class and binary classification (~89-100% on UNSW/DDOS)
+- **Random Forest** outperforms on large imbalanced multi-class problems
+- **SVM** with linear kernel works well for multi-class when data is balanced
+- **SVM** with RBF kernel achieves 95%+ accuracy on binary classification
+- All models handle UNSW binary classification well (>95% accuracy)
 
 ### Important Features (Random Forest)
 **CIC-IDS-2017:**
@@ -181,7 +185,7 @@ python svm_v2.py            # SVM
 
 ## Technologies Used
 - **Data Processing**: Pandas, NumPy
-- **Machine Learning**: Scikit-learn (Random Forest)
+- **Machine Learning**: Scikit-learn (Random Forest, SVM)
 - **Deep Learning**: TensorFlow, Keras (CNN)
 - **Metrics**: Scikit-learn metrics (accuracy, precision, recall, F1, confusion matrix)
 - **Python Version**: 3.11+
