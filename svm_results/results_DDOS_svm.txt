@@ -1,0 +1,24 @@
+SVM Classifier - DDOS (Binary: DDOS vs BENIGN)
+
+Dataset Note: DDOS dataset is single-class; BENIGN samples from CIC-IDS-2017
+
+Accuracy:  0.6328 (63.28%)
+Precision: 0.7042 (70.42%)
+Recall:    0.6328 (63.28%)
+F1-Score:  0.5596 (55.96%)
+
+Test Samples: 17613
+Common Features: 3
+
+Confusion Matrix:
+[[1450 6163]
+ [ 305 9695]]
+
+              precision    recall  f1-score   support
+
+      BENIGN       0.83      0.19      0.31      7613
+        DDOS       0.61      0.97      0.75     10000
+
+    accuracy                           0.63     17613
+   macro avg       0.72      0.58      0.53     17613
+weighted avg       0.70      0.63      0.56     17613
